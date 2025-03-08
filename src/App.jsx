@@ -1,5 +1,6 @@
-import { useState, } from 'react';
+import { useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ResumeUploader from './components/ResumeUploader';
 import Header from './components/Header';
 import { Helmet } from 'react-helmet-async';
@@ -11,8 +12,11 @@ import {
 import JobDescriptionSection from './components/JobDescriptionSection';
 import ResultsSection from './components/ResultsSection';
 import ProgressIndicator from './components/ProgressIndicator';
+import About from './pages/About';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
-function App() {
+function HomePage() {
   const [resumeData, setResumeData] = useState(null);
   const [jobDescription, setJobDescription] = useState('');
   const [coverLetters, setCoverLetters] = useState([]);
@@ -56,8 +60,6 @@ function App() {
     }
   };
 
-
-
   const handleJobDescriptionChange = (jd) => {
     setJobDescription(jd);
   };
@@ -96,7 +98,7 @@ function App() {
       <Helmet>
         <title>AI Resume Parser & Cover Letter Generator | Optimize Your Job Applications</title>
         <meta name="description" content="Use our AI-powered tools to parse your resume, generate tailored cover letters, and optimize your job applications for ATS systems." />
-        <link rel="canonical" href="https://yourwebsite.com" />
+        <link rel="canonical" href="https://resumeparserpro.online" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -159,14 +161,14 @@ function App() {
                 </p>
               </div>
             </div>
-
+            
             <div className="text-center mb-6">
               <h2 className="text-xl font-bold text-gray-800 mb-4">Optimize Your Job Search with AI-Powered Tools</h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
                 In today's competitive job market, standing out is essential. Our AI Resume Parser and Cover Letter Generator provide job seekers with powerful tools to optimize resumes for ATS systems, create compelling cover letters, and receive personalized insights. With advanced natural language processing technology, we analyze your qualifications against job descriptions to highlight relevant skills, identify improvement areas, and generate tailored application materials that increase your chances of securing interviews.
               </p>
             </div>
-
+            
             <div className="text-center mb-6">
               <div className="flex flex-wrap justify-center gap-3 mb-4">
                 <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Resume Optimization</span>
@@ -177,14 +179,33 @@ function App() {
                 <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Interview Preparation</span>
               </div>
             </div>
-
-            <p className="text-center text-gray-500 text-sm">
+            
+            <div className="flex justify-center space-x-6 text-sm text-gray-600">
+              <a href="/about" className="hover:text-blue-600">About Us</a>
+              <a href="/privacy-policy" className="hover:text-blue-600">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-blue-600">Terms of Service</a>
+            </div>
+            
+            <p className="text-center text-gray-500 text-sm mt-6">
               © {new Date().getFullYear()} AI Resume Parser. All rights reserved.
             </p>
           </div>
         </footer>
       </div>
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+      </Routes>
+    </Router>
   );
 }
 
