@@ -32,6 +32,7 @@ function ResumeUploader({ onResumeUpload, parsing }) {
           extractedText += pageLines;
         }
         localStorage.setItem("text", JSON.stringify(extractedText));
+        onResumeUpload({ text: extractedText })
       } catch (error) {
         console.error("Error parsing PDF:", error);
         throw error;
@@ -51,7 +52,7 @@ function ResumeUploader({ onResumeUpload, parsing }) {
     try {
       // Fix: Pass a proper callback function that sets the state and then calls onResumeUpload
       await extractTextFromPDF(selectedFile)
-      onResumeUpload({ hi: "kje" });
+      // onResumeUpload({ hi: "kje" });
     } catch (error) {
       console.error('Error parsing resume:', error);
       setError(`Failed to parse resume: ${error.message || 'Unknown error'}`);

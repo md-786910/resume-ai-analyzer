@@ -36,10 +36,11 @@ function HomePage() {
     return cleanedString;
   }
 
-  const handleResumeUpload = async () => {
+  const handleResumeUpload = async (parse) => {
     try {
       setParsing(true);
-      const data = cleanupString(JSON.parse(localStorage.getItem("text")));
+      // const data = cleanupString(JSON.parse(localStorage.getItem("text")));
+      const data = cleanupString(parse?.text);
       const prompt = `
         You are an expert ATS (Applicant Tracking System) analyzer and resume optimizer. 
         Extract key information from the resume text including skills, experience, education, achievements, and certifications. 
@@ -101,7 +102,7 @@ function HomePage() {
         <link rel="canonical" href="https://resumeparserpro.online" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 pt-16">
         <Header />
         <main className="app-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Progress Indicator */}
@@ -161,14 +162,14 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            
+
             <div className="text-center mb-6">
               <h2 className="text-xl font-bold text-gray-800 mb-4">Optimize Your Job Search with AI-Powered Tools</h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
                 In today's competitive job market, standing out is essential. Our AI Resume Parser and Cover Letter Generator provide job seekers with powerful tools to optimize resumes for ATS systems, create compelling cover letters, and receive personalized insights. With advanced natural language processing technology, we analyze your qualifications against job descriptions to highlight relevant skills, identify improvement areas, and generate tailored application materials that increase your chances of securing interviews.
               </p>
             </div>
-            
+
             <div className="text-center mb-6">
               <div className="flex flex-wrap justify-center gap-3 mb-4">
                 <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Resume Optimization</span>
@@ -179,13 +180,13 @@ function HomePage() {
                 <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Interview Preparation</span>
               </div>
             </div>
-            
+
             <div className="flex justify-center space-x-6 text-sm text-gray-600">
               <a href="/about" className="hover:text-blue-600">About Us</a>
               <a href="/privacy-policy" className="hover:text-blue-600">Privacy Policy</a>
               <a href="/terms-of-service" className="hover:text-blue-600">Terms of Service</a>
             </div>
-            
+
             <p className="text-center text-gray-500 text-sm mt-6">
               © {new Date().getFullYear()} AI Resume Parser. All rights reserved.
             </p>

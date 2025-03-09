@@ -11,11 +11,11 @@ const About = () => {
         <link rel="canonical" href="https://resumeparserpro.online/about" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50  pt-16">
         <Header />
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">About AI Resume Parser</h1>
-          
+
           <section className="bg-white rounded-xl shadow-md p-8 mb-10">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
             <p className="text-gray-600 mb-6">
@@ -25,7 +25,7 @@ const About = () => {
               We understand the challenges of modern job hunting, where Applicant Tracking Systems (ATS) can filter out qualified candidates before a human ever sees their resume. Our AI-powered tools are designed to help you navigate these systems while creating compelling application materials that showcase your unique qualifications.
             </p>
           </section>
-          
+
           <section className="bg-white rounded-xl shadow-md p-8 mb-10">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Technology</h2>
             <p className="text-gray-600 mb-6">
@@ -46,7 +46,7 @@ const About = () => {
               </div>
             </div>
           </section>
-          
+
           <section className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Team</h2>
             <p className="text-gray-600 mb-6">
@@ -60,7 +60,7 @@ const About = () => {
             </p>
           </section>
         </main>
-        
+
         <footer className="bg-white py-6 mt-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-gray-500 text-sm">
